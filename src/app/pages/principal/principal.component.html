@@ -19,7 +19,37 @@
         <div *ngIf="isWorkExpTransformed">{{ contentByLanguageWorkExpTitle[selectedLanguage] }}</div>      
       </button>
       <div class="work-experience-content" [style.display]="isWorkExpVisible ? 'block' : 'none'">
-        <!-- {{ contentByLanguageAboutMe[selectedLanguage] }} -->
+        <div class="fullstack-ppo">
+          {{ contentByLanguageDevWorkExp[selectedLanguage] }} 
+
+          <table *ngIf="contentByLanguagePpoDevFunctions[selectedLanguage]">
+            <tr>
+              <th>PPO</th>
+              <th>FullStack</th>
+            </tr>
+            <tr *ngFor="let item of contentByLanguagePpoDevFunctions[selectedLanguage]">
+              <td>{{ item.ppo }}</td>
+              <td>{{ item.dev }}</td>
+            </tr>
+       
+          </table>
+        <div class="travel-agent">
+          {{ contentByLanguageTravelWorkExp[selectedLanguage] }} 
+
+          <table *ngIf="contentByLanguageTravelAgentFunctions[selectedLanguage]">
+            <tr>
+              <th *ngIf="isWorkExpTransformed">{{ contentByLanguageTravelTitle[selectedLanguage] }}</th>
+              <th *ngIf="!isWorkExpTransformed">{{ contentByLanguageTravelTitle[selectedLanguage] }}</th>
+              <th>MICE</th>
+            </tr>
+            <tr *ngFor="let item of contentByLanguageTravelAgentFunctions[selectedLanguage]">
+              <td>{{ item.travelAgent }}</td>
+              <td>{{ item.mice }}</td>
+            </tr>
+       
+          </table>
+        </div>
+        
       </div>
     </div>
 

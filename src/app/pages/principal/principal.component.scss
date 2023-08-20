@@ -7,7 +7,6 @@
   padding-top: 15rem;
 }
 
-
 .btn-about-me,
 .btn-work-experience,
 .btn-education,
@@ -41,11 +40,10 @@
 }
 
 
-.about-me-content {
+.about-me-content, .work-experience-content {
   display: none;
   margin-top: 20px;
   background-color: #D9D9D9;
   display: none;
   flex: 1;
-
 }
