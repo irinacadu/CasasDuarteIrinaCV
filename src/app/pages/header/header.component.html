@@ -1,0 +1,25 @@
+<div class="menu">
+    <div class="datos">
+        <h1 id="name">IRINA CASAS DUARTE</h1>
+        <h2 id="job">Full Stack developer | BA</h2>
+    </div>
+    <div class="contact">
+        <button mat-button class="btn-contact">CONTACT</button>
+    </div>
+    <div class="language">
+        <mat-form-field>
+            <mat-label>Change language</mat-label>
+            <mat-select (valueChange)="changeLanguage($event)">
+                <mat-option value="english">English</mat-option>
+                <mat-option value="castellano">Castellano</mat-option>
+                <mat-option value="catala">Català</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class=" download">
+        <button mat-button class="btn-download">Download CV</button>
+
+    </div>
+
+
+</div>

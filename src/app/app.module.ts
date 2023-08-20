@@ -1,21 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
+
 import { AboutMeComponent } from './pages/about-me/about-me.component';
-
-
+import { HeaderComponent } from './pages/header/header.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
+import { AppRoutingModule } from './app-routing.module';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// o
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    HeaderComponent,
+    PrincipalComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatExpansionModule
+    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

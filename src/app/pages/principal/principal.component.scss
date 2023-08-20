@@ -1,0 +1,51 @@
+.principal-background {
+  width: 100%;
+  background-color: #152427;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15rem;
+}
+
+
+.btn-about-me,
+.btn-work-experience,
+.btn-education,
+.btn-skills,
+.btn-languages {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 382.742px;
+  background: rgba(105, 214, 208, 0.50);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-about-me.transformed,
+.btn-work-experience.transformed {
+  border-radius: 0%;
+  width: 100%;
+  height: 50px;  
+  text-align: left;
+  font-size: 14px;
+}
+
+.about-me, .work-experience{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+
+.about-me-content {
+  display: none;
+  margin-top: 20px;
+  background-color: #D9D9D9;
+  display: none;
+  flex: 1;
+
+}

@@ -1,1 +1,4 @@
-<app-inicio></app-inicio>
+<div>
+    <app-header (languageChanged)="onLanguageChanged($event)"></app-header>
+    <app-principal [selectedLanguage]="selectedLanguage"></app-principal>
+</div>

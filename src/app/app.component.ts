@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'irinaCasasDuarte';
+
+  selectedLanguage: string = 'english';
+
+  onLanguageChanged(language: string) {
+    this.selectedLanguage = language;
+  }
 }
