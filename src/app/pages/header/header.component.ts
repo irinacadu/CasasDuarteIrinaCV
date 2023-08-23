@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { PdfGeneratorService } from '../services/pdf-generator.service';
 
 @Component({
   selector: 'app-header',
@@ -12,5 +13,20 @@ export class HeaderComponent {
   changeLanguage(language: string) {
     this.languageChanged.emit(language);
   }
+  isLanguageChanged = false;
+  selectedLanguage: string = 'english';
+  toggleAboutMeChange() {
+    debugger;
+    
+    this.isLanguageChanged = !this.isLanguageChanged;
 
+   
+  }
+
+ 
+  selectByLanguage:{ [key: string]: string } ={    
+    english: 'English (B2)',
+    castellano: 'Inglés (B2)',
+    catala: ' Anglès (B2)'
+  }
 }

@@ -1,9 +1,18 @@
 import { Component, Input } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { PdfGeneratorService } from '../services/pdf-generator.service';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.scss']
+  styleUrls: ['./principal.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('visible', style({ opacity: 1, display: 'block' })),
+      state('hidden', style({ opacity: 0, display: 'none' })),
+      transition('visible <=> hidden', animate('0.3s ease')),
+    ]),
+  ]
 })
 export class PrincipalComponent {
   isAboutMeVisible = false;
@@ -12,15 +21,75 @@ export class PrincipalComponent {
   isWorkExpVisible = false;
   isWorkExpTransformed = false;
 
+  isEducationVisible = false;
+  isEducationTransformed = false;
+
+  isSkillsVisible = false;
+  isSkillsTransformed = false;
+
   @Input() selectedLanguage: string = 'english';
+  constructor(private pdfGeneratorService: PdfGeneratorService) {}
 
 
+
+  onGeneratePDF() {
+   const contentSections: Record<string, string[]> = {
+  'Work Experience': this.getWorkExperienceContent(),
+  // Add other sections here
+};
+
+this.pdfGeneratorService.generatePDF(contentSections);
+  }
+
+  getWorkExperienceContent(): string[] {
+    const devWorkExp = this.contentByLanguageDevWorkExp[this.selectedLanguage];
+    const travelWorkExp = this.contentByLanguageTravelWorkExp[this.selectedLanguage];
+  
+    console.log(devWorkExp.date)
+    const formattedContent: string[] = [];
+  
+    formattedContent.push('Development Work Experience:');
+    this.formatExperienceContent(devWorkExp, formattedContent);
+  
+    formattedContent.push('Travel Work Experience:');
+    this.formatExperienceContent(travelWorkExp, formattedContent);
+  
+    return formattedContent;
+  }
+  
+  private formatExperienceContent(workExp: any, formattedContent: string[]) {
+    for (const entryKey in workExp) {
+      if (workExp.hasOwnProperty(entryKey)) {
+        const entry = workExp[entryKey];
+        const formattedEntry = `- ${entry.date}: ${entry.description}`;
+        formattedContent.push(formattedEntry);
+  
+        if (entry.functions && entry.functions.length > 0) {
+          for (const func of entry.functions) {
+            if (func.dev) {
+              formattedContent.push(`  - ${func.dev}`);
+            }
+            if (func.travelAgent) {
+              formattedContent.push(`  - ${func.travelAgent}`);
+            }
+            if (func.mice) {
+              formattedContent.push(`  - ${func.mice}`);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
   //ABOUT ME
   toggleAboutMeChange() {
     this.isAboutMeVisible = !this.isAboutMeVisible;
     this.isAboutMeTransformed = !this.isAboutMeTransformed;
   }
-
+  getSegments(text: string): string[] {
+    return text.split('**');
+  }
   contentByLanguageAboutMeTitle:{ [key: string]: string } ={
     english: 'ABOUT ME',
     castellano: 'SOBRE MI'
@@ -28,8 +97,8 @@ export class PrincipalComponent {
   ;
 
   contentByLanguageAboutMe: { [key: string]: string } = {
-    english: 'Three years ago, I changed my career path and I decided to study a Senior Level Vocational Training in web development. I did it because I want to grow and learn constantly. Because of my perseverance, I got my first job in IT before I finished my studies. I am comfortable in dynamic and highly demanding environments because they help me to expand my creativity, efficiency and empathy. I am ready and motivated to take on new challenges and face them with enthusiasm and professionalism and to take every opportunity to develop my skills and be part of the success of the team and the company',
-    castellano: 'Hace tres años le di un giro a mi carrera profesional y decidí estudiar el CFGS de desarrollo de aplicaciones web. Quise cambiar de sector porque que mi máxima es crecer y el aprendizaje constante. Dada mi perseverancia, conseguí el primer empleo en el sector antes de terminar los estudios. Me siento cómoda en entornos dinámicos y altamente demandantes ya que me ayudan a expandir la creatividad, la eficiencia y la empatía. Estoy preparada y motivada para asumir nuevos desafíos y enfrentarlos con entusiasmo y profesionalidad aprovechando cada oportunidad para desarrollar mis habilidades y contribuir al éxito del equipo y la empresa.',
+    english: 'Three years ago, I changed my career path and I decided to study a Senior Level Vocational Training in web development. I did it because **I want to grow and learn constantly**. Because of my perseverance, I got my first job in IT before I finished my studies. **I am comfortable in dynamic and highly demanding environments** because they help me to expand my creativity, efficiency and empathy. **I am ready and motivated to take on new challenges **and face them with enthusiasm and professionalism and to take every opportunity to develop my skills and **be part of the success of the team and the company.**',
+    castellano: 'Hace tres años le di un giro a mi carrera profesional y decidí estudiar el CFGS de desarrollo de aplicaciones web. Quise cambiar de sector porque que ** mi máxima es crecer y el aprendizaje constante **. Dada mi perseverancia, conseguí el primer empleo en el sector antes de terminar los estudios. **Me siento cómoda en entornos dinámicos y altamente demandantes** ya que me ayudan a expandir la creatividad, la eficiencia y la empatía. **Estoy preparada y motivada para asumir nuevos desafíos** y enfrentarlos con entusiasmo y profesionalidad aprovechando cada oportunidad para desarrollar mis habilidades y **contribuir al éxito del equipo y la empresa.**',
 
   };
 
@@ -40,15 +109,22 @@ export class PrincipalComponent {
     this.isWorkExpVisible = !this.isWorkExpVisible;
     this.isWorkExpTransformed = !this.isWorkExpTransformed;
   }
+
   contentByLanguageWorkExpTitle:{ [key: string]: string } ={
     english: 'WORK EXPERIENCE',
     castellano: 'EXPERIENCIA PROFESIONAL'
   };
 
-  contentByLanguageDevWorkExp:{[key:string]:string}={
-    english: '2022-Present Capgemini: \n Training period in bootcamp and first project in a public railway company: Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
-    castellano: '2022-Actualidad Capgemini: \n Periodo formación en bootcamp y primer proyecto en entidad pública ferroviaria: Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
-  }
+  contentByLanguageDevWorkExp:{[key:string]:any}={
+    english: {
+      date:'2022-Present Capgemini:',
+      description:'Training period in bootcamp and first project in a public railway company: Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
+    },
+      castellano: {
+        date: '2022-Actualidad Capgemini:',
+        description:'Periodo formación en bootcamp y primer proyecto en entidad pública ferroviaria: Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
+      }
+      }
 
   contentByLanguagePpoDevFunctions:{[key:string]:any[]}={
     english: [
@@ -80,18 +156,24 @@ export class PrincipalComponent {
       { ppo: 'Asegurar que las funciones cumplen con los requisitos del cliente y proporcionar comentarios al equipo de desarrollo', dev: '' },
       { ppo: 'Supervisar los errores en desarrollo y priorizarlos para la corrección', dev: '' },
     ],
-  }
+  };
 
-  contentByLanguageTravelWorkExp:{[key:string]:string}={
-    english: '2017-2022 Viajes el Corte Inglés As a travel agent in the leisure division and supporting the MICE (meetings, incentives, conferences and exhibitions) division. The functions I have been performing in each role are as follows:',
-    castellano: '2017-2022 Viajes el Corte Inglés Como agente de Viajes en la división de vacacional y como apoyo a la división MICE (meetings, incentives, conferences and exhibitions). Las funciones que he estado realizando en cada rol son las siguientes:'
-  }
+  contentByLanguageTravelWorkExp:{[key:string]:any}={
+    english: {
+      date:'2017-2022 Viajes el Corte Inglés',
+      description:'As a travel agent in the leisure division and supporting the MICE (meetings, incentives, conferences and exhibitions) division. The functions I have been performing in each role are as follows:',
+    },
+      castellano:{
+        date:'2017-2022 Viajes el Corte Inglés',
+       description:'Como agente de Viajes en la división de vacacional y como apoyo a la división MICE (meetings, incentives, conferences and exhibitions). Las funciones que he estado realizando en cada rol son las siguientes:'
+      }
+      };
 
   contentByLanguageTravelTitle:{ [key: string]: string } ={
     english: 'Travel Agent',
-    castellano:'Agente de Viajes'
-    
+    castellano:'Agente de Viajes'    
   };
+  
   contentByLanguageTravelAgentFunctions:{[key:string]:any[]}={
     english: [
       { travelAgent: 'Customer care', mice: 'Management of national and international transport for speakers and attendees.' },
@@ -113,7 +195,126 @@ export class PrincipalComponent {
       { travelAgent: 'Fidelización de clientes a través de la confianza, la sinceridad y el cuidado de los intereses mutuos.', mice: '' }
    
     ],
+  };
+
+  //EDUCATION
+  toggleEducationChange() {
+    this.isEducationVisible = !this.isEducationVisible;
+    this.isEducationTransformed = !this.isEducationTransformed;
+  };
+
+  contentByLanguageEducationTitle:{ [key: string]: string } ={
+    english: 'EDUCATION',
+    castellano:'FORMACIÓN'    
+  };
+  contentByLanguageDevEducation:{[key:string]:any}={
+    english: {
+      dateEd:'2020-2023:',
+      descriptionEd: 'Senior Level Vocational Training in web development (MEC level 6)'
+    },
+    castellano:{
+      dateEd:'2020-2023:',
+      descriptionEd: 'CFGS de aplicaciones web (CEIFP CARLOS III, Cartagena)'
+    }  
+  };
+  contentByLanguageTravelEducation:{[key:string]:any}={
+    english:{
+      dateEd:'2014-2016:',
+      descriptionEd:'Senior Level Vocational Training in travel agencies and MICE (MEC level 6)'
+    } ,
+    castellano:{
+      dateEd:'2014-2016:',
+      descriptionEd:'CFGS de agencias de viajes y organización de eventos. (IES La Flota, Murcia)'
+    } 
+  };
+
+  //SKILLS
+  toggleSkillsChange() {
+    this.isSkillsVisible = !this.isSkillsVisible;
+    this.isSkillsTransformed = !this.isSkillsTransformed;
+  };
+  contentByLanguageSkillsTitle:{ [key: string]: string } ={
+    english: 'SKILLS',
+    castellano:'HABILIDADES'    
+  };
+  contentByLanguageSkillsType:{[key:string]:any}={
+    english: {
+      soft:'SOFT',
+      hard:'HARD'
+      },
+    castellano:{
+      soft:'PERSONALES',
+      hard:'TECNICAS'
+      },   
+  }
+  contentByLanguageSkillsSoft:{[key:string]:any}={
+    english: [
+      {soft:'Change management', icon:'multiple_stop'},
+      {soft:'Growth mindset', icon:'rocket_launch'},
+      {soft:'Analytical mindset', icon:'psychology'},
+      {soft:'Planning',icon:'edit_calendar'},
+      {soft:'Organized',icon:'lists'},
+      {soft:'Responsible',icon:'alarm_smart_wake'},
+      {soft:'Leadership',icon:'groups'},
+      {soft:'Time management', icon:'manage_history'},
+      {soft:'Professional ethics',icon:'diversity_1'},
+      {soft:'Teamwork', icon: 'diversity_3'},
+      {soft:'Creativity',icon:'palette'},
+      {soft:'Involvement',icon: 'approval_delegation'},
+      
+      
+    ],
+      
+    castellano:[
+
+      {soft:'Gestión del cambio',icon:'multiple_stop'},
+      {soft:'Mentalidad de crecimiento', icon:'rocket_launch'},
+      {soft:'Mentalidad analítica', icon:'psychology'},
+      {soft:'Planificación',icon:'edit_calendar'},
+      {soft:'Organización', icon:'lists'},
+      {soft:'Responsable',icon:'alarm_smart_wake'},
+      {soft:'Liderazgo',icon:'groups'},
+      {soft:'Gestión de tiempo',icon:'manage_history'},
+      {soft:'Ética profesional', icon:'diversity_1'},
+      {soft:'Trabajo en equipo', icon: 'diversity_3'},    
+      {soft:'Creatividad',icon:'palette'},
+      {soft:'Implicación',icon:'approval_delegation'},
+      
+    ]  
+  }
+
+  contentByLanguageSkillsHard:{[key:string]:any}={
+    english: [
+      {hard:'Spring Boot',img:'spring-boot-logo.png'},
+      {hard:'Angular 16',img:'angular.png'},
+      {hard:'Sencha', img:'sencha.png'},
+      {hard:'Java11/+',img:'java.png'},
+      {hard:'TypeScript',img:'typescript.png'},     
+      {hard:'Postgres',img:'postgresql.png'},
+      {hard:'SQL',img:'SQL.png'},
+      {hard:'Jira',img:'Jira.png'},
+      {hard:'OfficeSuite36',img:'office.png'},
+      {hard:'Figma',img:'figma.png'},
+      {hard:'Jenkins',img:'jenkins.png'}
+      
+    ],
+      
+    castellano:[
+      {hard:'Spring Boot',img:'spring-boot-logo.png'},
+      {hard:'Angular 16',img:'angular.png'},
+      {hard:'Sencha', img:'sencha.png'},
+      {hard:'Java11/+',img:'java.png'},
+      {hard:'TypeScript',img:'typescript.png'},     
+      {hard:'Postgres',img:'postgresql.png'},
+      {hard:'SQL',img:'SQL.png'},
+      {hard:'Jira',img:'Jira.png'},
+      {hard:'OfficeSuite36',img:'office.png'},
+      {hard:'Figma',img:'figma.png'},
+      {hard:'Jenkins',img:'jenkins.png'}
+      
+    ]  
   }
 
 
+  
 }
