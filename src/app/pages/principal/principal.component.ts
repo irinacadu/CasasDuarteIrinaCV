@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PdfGeneratorService } from '../services/pdf-generator.service';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-principal',
@@ -28,59 +29,55 @@ export class PrincipalComponent {
   isSkillsTransformed = false;
 
   @Input() selectedLanguage: string = 'english';
-  constructor(private pdfGeneratorService: PdfGeneratorService) {}
+  constructor() {}
 
 
 
-  onGeneratePDF() {
-   const contentSections: Record<string, string[]> = {
-  'Work Experience': this.getWorkExperienceContent(),
-  // Add other sections here
-};
+//   onGeneratePDF() {
+//    const contentSections: Record<string, string[]> = {
+//   'Work Experience': this.getWorkExperienceContent(),
+//   // Add other sections here
+// };
 
-this.pdfGeneratorService.generatePDF(contentSections);
-  }
+// this.pdfGeneratorService.generatePDF(contentSections);
+//   }
 
-  getWorkExperienceContent(): string[] {
+
+  getWorkExperienceContent(){
+    const doc = new jsPDF();
+    let yOffset = 10;
+
+
     const devWorkExp = this.contentByLanguageDevWorkExp[this.selectedLanguage];
     const travelWorkExp = this.contentByLanguageTravelWorkExp[this.selectedLanguage];
+
+    // for (const section in contentSections) {
+    //   const content = this.formatContent(contentSections[section]);
+      doc.setFontSize(14);
+      doc.text(devWorkExp.date, 10, yOffset);
+      doc.setFontSize(12);
+      yOffset += 10;
+    //   doc.text(content, 10, yOffset);
+    //   yOffset += doc.splitTextToSize(content, 180).length * 10 + 10; // Adjust yOffset for multi-line content
+    // }
   
-    console.log(devWorkExp.date)
-    const formattedContent: string[] = [];
+   // doc.text(devWorkExp.date, 10, 10);
+    doc.save('CV_'+this.selectedLanguage+'_IrinaCasasDuarte.pdf');
   
-    formattedContent.push('Development Work Experience:');
-    this.formatExperienceContent(devWorkExp, formattedContent);
-  
-    formattedContent.push('Travel Work Experience:');
-    this.formatExperienceContent(travelWorkExp, formattedContent);
-  
-    return formattedContent;
   }
+
   
-  private formatExperienceContent(workExp: any, formattedContent: string[]) {
-    for (const entryKey in workExp) {
-      if (workExp.hasOwnProperty(entryKey)) {
-        const entry = workExp[entryKey];
-        const formattedEntry = `- ${entry.date}: ${entry.description}`;
-        formattedContent.push(formattedEntry);
-  
-        if (entry.functions && entry.functions.length > 0) {
-          for (const func of entry.functions) {
-            if (func.dev) {
-              formattedContent.push(`  - ${func.dev}`);
-            }
-            if (func.travelAgent) {
-              formattedContent.push(`  - ${func.travelAgent}`);
-            }
-            if (func.mice) {
-              formattedContent.push(`  - ${func.mice}`);
-            }
-          }
-        }
-      }
+  private formatContent(content: any): string {
+    if (typeof content === 'string') {
+      return content;
+    } else if (Array.isArray(content)) {
+      return content.map(item => this.formatContent(item)).join('\n');
+    } else if (typeof content === 'object') {
+      // Handle complex objects or structures here if needed
+      // Return formatted content as a string
     }
+    return '';
   }
-  
   
   //ABOUT ME
   toggleAboutMeChange() {
