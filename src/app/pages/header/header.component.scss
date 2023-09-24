@@ -1,0 +1,29 @@
+.menu {
+    width: 100%;
+    // height: 154px;
+    display: flex;
+    position: fixed;
+    background: #252525;
+   
+}
+
+.contenido{
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+    margin-top: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+}
+#name {
+    color: #EC5088;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+ 
+
+}
+
+#job{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+}
