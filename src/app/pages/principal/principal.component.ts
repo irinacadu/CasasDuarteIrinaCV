@@ -29,55 +29,21 @@ export class PrincipalComponent {
   isSkillsTransformed = false;
 
   @Input() selectedLanguage: string = 'english';
-  constructor() {}
+  constructor(private pdfGeneratorService: PdfGeneratorService) {}
 
 
 
-//   onGeneratePDF() {
-//    const contentSections: Record<string, string[]> = {
-//   'Work Experience': this.getWorkExperienceContent(),
-//   // Add other sections here
-// };
-
-// this.pdfGeneratorService.generatePDF(contentSections);
-//   }
-
-
-  getWorkExperienceContent(){
-    const doc = new jsPDF();
-    let yOffset = 10;
-
-
+  generatePPOPdf() {
+    const aboutMeTitle = this.contentByLanguageAboutMeTitle[this.selectedLanguage];
+    const aboutMeDescription = this.contentByLanguageAboutMe[this.selectedLanguage];
+    const workExperienceTitle = this.contentByLanguageWorkExpTitle[this.selectedLanguage];
     const devWorkExp = this.contentByLanguageDevWorkExp[this.selectedLanguage];
+    const devFunctions = this.contentByLanguagePpoDevFunctions[this.selectedLanguage];
     const travelWorkExp = this.contentByLanguageTravelWorkExp[this.selectedLanguage];
-
-    // for (const section in contentSections) {
-    //   const content = this.formatContent(contentSections[section]);
-      doc.setFontSize(14);
-      doc.text(devWorkExp.date, 10, yOffset);
-      doc.setFontSize(12);
-      yOffset += 10;
-    //   doc.text(content, 10, yOffset);
-    //   yOffset += doc.splitTextToSize(content, 180).length * 10 + 10; // Adjust yOffset for multi-line content
-    // }
-  
-   // doc.text(devWorkExp.date, 10, 10);
-    doc.save('CV_'+this.selectedLanguage+'_IrinaCasasDuarte.pdf');
-  
+    this.pdfGeneratorService.generateWorkPPOExperiencePdf(aboutMeTitle, aboutMeDescription, devWorkExp, devFunctions, travelWorkExp, this.selectedLanguage);
   }
 
   
-  private formatContent(content: any): string {
-    if (typeof content === 'string') {
-      return content;
-    } else if (Array.isArray(content)) {
-      return content.map(item => this.formatContent(item)).join('\n');
-    } else if (typeof content === 'object') {
-      // Handle complex objects or structures here if needed
-      // Return formatted content as a string
-    }
-    return '';
-  }
   
   //ABOUT ME
   toggleAboutMeChange() {
@@ -113,15 +79,29 @@ export class PrincipalComponent {
   };
 
   contentByLanguageDevWorkExp:{[key:string]:any}={
-    english: {
-      date:'2022-Present Capgemini:',
-      description:'Training period in bootcamp and first project in a public railway company: Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
-    },
-      castellano: {
-        date: '2022-Actualidad Capgemini:',
-        description:'Periodo formación en bootcamp y primer proyecto en entidad pública ferroviaria: Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
-      }
-      }
+    english: [
+                {project1:
+                  [
+                    {
+                      date:'2022-Present Capgemini:',
+                      description:'Training period in bootcamp and first project in a public railway company: Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
+                    }
+                  ]
+                }
+              ],
+    castellano:
+              [
+                {project1:[
+                    {
+                      date: '2022-Actualidad Capgemini:',
+                      description:'Periodo formación en bootcamp y primer proyecto en entidad pública ferroviaria: Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
+                    }
+                  ]
+                }
+              ]
+    
+   
+  }
 
   contentByLanguagePpoDevFunctions:{[key:string]:any[]}={
     english: [
@@ -135,7 +115,8 @@ export class PrincipalComponent {
       { ppo: 'Clarify customer queries.', dev: 'Sonar bug fixes.' },
       { ppo: 'Supporting the development team', dev: 'Version control and uploads to development, pre-production and production with GIT.' },
       { ppo: 'Carrying out user acceptance testing (UAT)', dev: 'CI/CD with Jenkins' },
-      { ppo: 'Ensure that the application\'s functionalities meet the client\'s requirements and provide feedback to the development team.', dev: '' },
+      { ppo: 'Ensure that the application\'s functionalities meet the client\'s requirements', dev: '' },
+      { ppo: 'Provide feedback from the client to the development team.', dev: '' },
       { ppo: 'Monitor bugs in development and prioritise them for correction', dev: '' },
     ],
 
@@ -151,6 +132,7 @@ export class PrincipalComponent {
       { ppo: 'Brindar apoyo al equipo de desarrollo', dev: 'Control de versiones y subidas a desarrollo, preproducción y producción con GIT.' },
       { ppo: 'Realización de UAT (Pruebas aceptación usuario)', dev: 'CI/CD con Jenkins' },
       { ppo: 'Asegurar que las funciones cumplen con los requisitos del cliente y proporcionar comentarios al equipo de desarrollo', dev: '' },
+      { ppo: 'Proporcionar feedback del cliente al equipo de desarrollo', dev: '' },
       { ppo: 'Supervisar los errores en desarrollo y priorizarlos para la corrección', dev: '' },
     ],
   };
