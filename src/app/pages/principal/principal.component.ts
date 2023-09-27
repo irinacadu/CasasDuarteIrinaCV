@@ -83,8 +83,10 @@ export class PrincipalComponent {
                 {project1:
                   [
                     {
-                      date:'2022-Present Capgemini:',
-                      description:'Training period in bootcamp and first project in a public railway company: Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
+                      enterprise: 'Capgemini',
+                      date:'2022-Present',
+                      jobTitle: 'Public Railway Company',
+                      description:'Given the difficulty of the project and as a junior, I focused on learning about the needs of the client, the business and the application becoming one of the people who had the most functional knowledge of it. For this reason, the PM offered me to collaborate 50% with the PPO and the other 50% in maintenance as a full stack. The functions I have been performing in each role are as follows:',
                     }
                   ]
                 }
@@ -93,15 +95,15 @@ export class PrincipalComponent {
               [
                 {project1:[
                     {
-                      date: '2022-Actualidad Capgemini:',
-                      description:'Periodo formación en bootcamp y primer proyecto en entidad pública ferroviaria: Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
+                      enterprise: 'Capgemini',
+                      date: '2022-Actualidad',
+                      jobTitle: 'Entidad Pública Ferroviaria',
+                      description:'Dada la dificultad del proyecto y como junior me enfoqué en aprender acerca de las necesidades del cliente, el negocio y la aplicación posicionándome como una de las personas que mas conocimiento funcional tenía. Por esto, el PM me ofreció estar al 50% de soporte con el PPO y el 50% en mantenimiento como full stack. Las funciones que he estado realizando en cada rol son las siguientes:'
                     }
                   ]
                 }
               ]
-    
-   
-  }
+   }
 
   contentByLanguagePpoDevFunctions:{[key:string]:any[]}={
     english: [
@@ -139,11 +141,13 @@ export class PrincipalComponent {
 
   contentByLanguageTravelWorkExp:{[key:string]:any}={
     english: {
-      date:'2017-2022 Viajes el Corte Inglés',
+      enterprise: 'Viajes el Corte Inglés',
+      date:'2017-2022',
       description:'As a travel agent in the leisure division and supporting the MICE (meetings, incentives, conferences and exhibitions) division. The functions I have been performing in each role are as follows:',
     },
       castellano:{
-        date:'2017-2022 Viajes el Corte Inglés',
+        enterprise: 'Viajes el Corte Inglés',
+        date:'2017-2022',
        description:'Como agente de Viajes en la división de vacacional y como apoyo a la división MICE (meetings, incentives, conferences and exhibitions). Las funciones que he estado realizando en cada rol son las siguientes:'
       }
       };

@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// o
+
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormatDescriptionPipe } from 'src/pipes/format-text-pipe';
