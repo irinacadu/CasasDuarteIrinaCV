@@ -1,0 +1,44 @@
+.contact-message{
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+    margin: 3rem;
+    gap:2rem;
+}
+.sender-content,
+.subject-content,
+.senderEmail-content,
+.content-content{
+    display: flex;
+    flex-direction: column;
+}
+
+// .buttons{
+//     display: flex;
+//     justify-content: space-around;
+//     margin-bottom: 2rem;
+// }
+
+// .contact-title{
+//     text-align: center;
+//     margin-bottom: -2rem;
+//     margin-top: 2rem;
+
+// }
+
+.contact-container{
+    width: 20rem;
+    height: 30rem;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+    background-color: red;
+}
+
+.button-close{
+    width: 100%;
+}
+
+body{
+    background-color: green;
+}

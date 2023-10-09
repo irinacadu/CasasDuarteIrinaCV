@@ -2,10 +2,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
 <div class="body">
   <div class="principal-background">
-    <div class=" download">
+    <!-- <div class=" download">
       <button mat-button class="btn-download" (click)="generatePPOPdf()">Download CV</button>
 
-  </div>
+  </div> -->
     <!--ABOUT ME-->
     <div class="about-me">
       <button class="btn-about-me " [class.transformed]="isAboutMeTransformed" (click)="toggleAboutMeChange()">
@@ -147,9 +147,28 @@
     </div>
 
     <!--INTERESES-->
-    <div class="languages">
-      <button class="btn-languages">INTERESTS</button>
+    <div class="interests">
+     
+      <button class="btn-interests" [class.transformed]="isInterestTransformed" (click)="toggleInterestChange()">
+
+        <div *ngIf="!isInterestTransformed">{{ contentByLanguageInterestTitle[selectedLanguage] }}</div>
+        <div *ngIf="isInterestTransformed">{{ contentByLanguageInterestTitle[selectedLanguage] }}</div>
+
+
+
+      </button>
     </div>
+
+      <!--PERSONAL PROJECTS-->
+      <div class="projects">
+        <button class="btn-projects" [class.transformed]="isPersonalProfjectTransformed" (click)="togglePersonalProjectChange()">
+          <div *ngIf="!isPersonalProfjectTransformed">{{ contentByLanguagePersonalProjectsTitle[selectedLanguage] }}</div>
+          <div *ngIf="isPersonalProfjectTransformed">{{ contentByLanguagePersonalProjectsTitle[selectedLanguage] }}</div>
+  
+
+        </button>
+      </div>
+  
 
   </div>
 </div>

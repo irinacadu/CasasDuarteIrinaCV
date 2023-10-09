@@ -28,11 +28,49 @@ export class PrincipalComponent {
   isSkillsVisible = false;
   isSkillsTransformed = false;
 
+  isInterestVisible= false;
+  isInterestTransformed = false;
+
+  isPersonalProjectVisible = false;
+  isPersonalProfjectTransformed = false;
+
   @Input() selectedLanguage: string = 'english';
   constructor(private pdfGeneratorService: PdfGeneratorService) {}
 
+  //TOGGLE [...] CHANGE
+
+  toggleAboutMeChange() {
+    this.isAboutMeVisible = !this.isAboutMeVisible;
+    this.isAboutMeTransformed = !this.isAboutMeTransformed;
+  }
+
+  toggleWorkExpChange() {
+    this.isWorkExpVisible = !this.isWorkExpVisible;
+    this.isWorkExpTransformed = !this.isWorkExpTransformed;
+  }
+
+  toggleEducationChange() {
+    this.isEducationVisible = !this.isEducationVisible;
+    this.isEducationTransformed = !this.isEducationTransformed;
+  };
+
+  toggleSkillsChange() {
+    this.isSkillsVisible = !this.isSkillsVisible;
+    this.isSkillsTransformed = !this.isSkillsTransformed;
+  };
+
+  toggleInterestChange() {
+    this.isPersonalProjectVisible = !this.isPersonalProjectVisible;
+    this.isInterestTransformed = !this.isInterestTransformed;
+  };
+
+  togglePersonalProjectChange() {
+    this.isSkillsVisible = !this.isSkillsVisible;
+    this.isPersonalProfjectTransformed = !this.isPersonalProfjectTransformed;
+  };
 
 
+  //PDF GENERATOR - CALL SERVICE
   generatePPOPdf() {
     const aboutMeTitle = this.contentByLanguageAboutMeTitle[this.selectedLanguage];
     const aboutMeDescription = this.contentByLanguageAboutMe[this.selectedLanguage];
@@ -43,16 +81,11 @@ export class PrincipalComponent {
     this.pdfGeneratorService.generateWorkPPOExperiencePdf(aboutMeTitle, aboutMeDescription, devWorkExp, devFunctions, travelWorkExp, this.selectedLanguage);
   }
 
-  
-  
-  //ABOUT ME
-  toggleAboutMeChange() {
-    this.isAboutMeVisible = !this.isAboutMeVisible;
-    this.isAboutMeTransformed = !this.isAboutMeTransformed;
-  }
   getSegments(text: string): string[] {
     return text.split('**');
   }
+
+
   contentByLanguageAboutMeTitle:{ [key: string]: string } ={
     english: 'ABOUT ME',
     castellano: 'SOBRE MI'
@@ -68,10 +101,6 @@ export class PrincipalComponent {
   
 
   //WORK EXPERIENCE
-  toggleWorkExpChange() {
-    this.isWorkExpVisible = !this.isWorkExpVisible;
-    this.isWorkExpTransformed = !this.isWorkExpTransformed;
-  }
 
   contentByLanguageWorkExpTitle:{ [key: string]: string } ={
     english: 'WORK EXPERIENCE',
@@ -181,11 +210,6 @@ export class PrincipalComponent {
   };
 
   //EDUCATION
-  toggleEducationChange() {
-    this.isEducationVisible = !this.isEducationVisible;
-    this.isEducationTransformed = !this.isEducationTransformed;
-  };
-
   contentByLanguageEducationTitle:{ [key: string]: string } ={
     english: 'EDUCATION',
     castellano:'FORMACIÓN'    
@@ -212,10 +236,6 @@ export class PrincipalComponent {
   };
 
   //SKILLS
-  toggleSkillsChange() {
-    this.isSkillsVisible = !this.isSkillsVisible;
-    this.isSkillsTransformed = !this.isSkillsTransformed;
-  };
   contentByLanguageSkillsTitle:{ [key: string]: string } ={
     english: 'SKILLS',
     castellano:'HABILIDADES'    
@@ -298,6 +318,19 @@ export class PrincipalComponent {
     ]  
   }
 
+  //INTERESTS
 
+  contentByLanguageInterestTitle:{ [key: string]: string } ={
+    english: 'INTERESTS',
+    castellano:'INTERESES'    
+  };
+
+
+  //PERSONAL PROJECTS
+
+  contentByLanguagePersonalProjectsTitle:{ [key: string]: string } ={
+    english: 'PERSONAL PROJECTS',
+    castellano:'PROYECTOS PERSONALES'    
+  };
   
 }
