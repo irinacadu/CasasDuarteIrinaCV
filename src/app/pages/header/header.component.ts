@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
 
 
 @Component({
@@ -8,6 +10,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(public dialog: MatDialog) { }
+
+  openContactDialog() {
+    const dialogRef = this.dialog.open(ContactDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   @Output() languageChanged = new EventEmitter<string>();
 
   changeLanguage(language: string) {
@@ -29,4 +40,8 @@ export class HeaderComponent {
     castellano: 'Inglés (B2)',
     catala: ' Anglès (B2)'
   }
+
+
+
+
 }

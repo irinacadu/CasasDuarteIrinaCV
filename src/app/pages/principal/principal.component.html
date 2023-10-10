@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
 <div class="body">
   <div class="principal-background">
     <div class=" download">
@@ -146,9 +147,28 @@
     </div>
 
     <!--INTERESES-->
-    <div class="languages">
-      <button class="btn-languages">INTERESTS</button>
+    <div class="interests">
+     
+      <button class="btn-interests" [class.transformed]="isInterestTransformed" (click)="toggleInterestChange()">
+
+        <div *ngIf="!isInterestTransformed">{{ contentByLanguageInterestTitle[selectedLanguage] }}</div>
+        <div *ngIf="isInterestTransformed">{{ contentByLanguageInterestTitle[selectedLanguage] }}</div>
+
+
+
+      </button>
     </div>
+
+      <!--PERSONAL PROJECTS-->
+      <div class="projects">
+        <button class="btn-projects" [class.transformed]="isPersonalProjectTransformed" (click)="togglePersonalProjectChange()">
+          <div *ngIf="!isPersonalProjectTransformed">{{ contentByLanguagePersonalProjectsTitle[selectedLanguage] }}</div>
+          <div *ngIf="isPersonalProjectTransformed">{{ contentByLanguagePersonalProjectsTitle[selectedLanguage] }}</div>
+  
+
+        </button>
+      </div>
+  
 
   </div>
 </div>
