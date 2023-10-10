@@ -32,7 +32,7 @@ export class PrincipalComponent {
   isInterestTransformed = false;
 
   isPersonalProjectVisible = false;
-  isPersonalProfjectTransformed = false;
+  isPersonalProjectTransformed = false;
 
   @Input() selectedLanguage: string = 'english';
   constructor(private pdfGeneratorService: PdfGeneratorService) {}
@@ -65,8 +65,8 @@ export class PrincipalComponent {
   };
 
   togglePersonalProjectChange() {
-    this.isSkillsVisible = !this.isSkillsVisible;
-    this.isPersonalProfjectTransformed = !this.isPersonalProfjectTransformed;
+    this.isPersonalProjectVisible = !this.isSkillsVisible;
+    this.isPersonalProjectTransformed = !this.isPersonalProjectTransformed;
   };
 
 

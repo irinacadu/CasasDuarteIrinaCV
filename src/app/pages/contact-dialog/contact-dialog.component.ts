@@ -31,8 +31,7 @@ onSubmit(){
 }
 sendEmail() {
   const { senderEmail, subject, content } = this.dataMessage;
-  const mailtoLink = `mailto:irinacadu@gmail.com?cc=${senderEmail}&subject=${subject}&body=${content}`;
-
+  const mailtoLink = `mailto:irinacadu@gmail.com`; 
   window.location.href = mailtoLink;
 }
 }

@@ -22,6 +22,7 @@ import { PdfGeneratorComponent } from './pages/pdf-generator/pdf-generator.compo
 import { ContactDialogComponent } from './pages/contact-dialog/contact-dialog.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent, 

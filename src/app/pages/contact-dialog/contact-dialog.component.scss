@@ -1,10 +1,7 @@
 .contact-message{
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     flex-direction: column;
-    margin: 3rem;
-    gap:2rem;
+   
 }
 .sender-content,
 .subject-content,
@@ -13,7 +10,10 @@
     display: flex;
     flex-direction: column;
 }
-
+.contact-message{
+   display: flex;
+   flex-direction: row; 
+}
 // .buttons{
 //     display: flex;
 //     justify-content: space-around;
@@ -27,17 +27,52 @@
 
 // }
 
+// .contact-container{
+//     width: 30rem;
+//     height: 15rem;  
+// }
+.contact-message{
+    width: 100%;
+    height: 100%;  
+   
+  
+}
+   
 .contact-container{
-    width: 20rem;
-    height: 30rem;
-    border-top-right-radius: 20%;
-    border-bottom-left-radius: 20%;
-    background-color: red;
+    background-color: rgb(247, 0, 103);
+    padding: 10px;
 }
 
-.button-close{
-    width: 100%;
+.contact-me{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-around;
+    gap:1rem;
+    background-color: white;
+    
+   
 }
+img{
+    width: 3rem;
+    height: 3rem;
+}
+.call-me{
+    flex: 1;
+    display:flex; 
+    background-color: gold;
+}
+.send-me{
+    flex: 1;
+    // width:50%;
+    // height: 100%;  
+     background-color: green;
+}
+
+// .button-close{
+//     width: 100%;
+// }
 
 body{
     background-color: green;
