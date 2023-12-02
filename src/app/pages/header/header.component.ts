@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
+import { HeaderContentComponent } from '../content/header-content/header-content.component';
+import { Header } from '../interfaces/header';
 
 
 @Component({
@@ -20,28 +22,37 @@ export class HeaderComponent {
     });
   }
   @Output() languageChanged = new EventEmitter<string>();
+  headerContentComponent: HeaderContentComponent = new HeaderContentComponent();
 
   changeLanguage(language: string) {
     this.languageChanged.emit(language);
+    this.updateHeaderContent(language);
   }
   isLanguageChanged = false;
   selectedLanguage: string = 'english';
   toggleAboutMeChange() {
-    debugger;
-    
+
     this.isLanguageChanged = !this.isLanguageChanged;
 
-   
+
   }
 
- 
-  selectByLanguage:{ [key: string]: string } ={    
-    english: 'English (B2)',
-    castellano: 'Inglés (B2)',
-    catala: ' Anglès (B2)'
+  private updateHeaderContent(language: string) {
+    this.selectedLanguage = language;
+  }
+  getContactMeContent(): string {
+    return this.headerContentComponent.contactMeByLanguage[this.selectedLanguage];
+  }
+  getHeaderContent(): Header[] {
+    return this.headerContentComponent.selectByLanguage[this.selectedLanguage];
+  }
+  getTitleContent(): string {
+    return this.headerContentComponent.selectTitleByLanguage[this.selectedLanguage];
   }
 
-
-
-
+  getJobContent(): string {
+    return this.headerContentComponent.selectJobByLanguage[this.selectedLanguage];
+  }
+  
+  
 }

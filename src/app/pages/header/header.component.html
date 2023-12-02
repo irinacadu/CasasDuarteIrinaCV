@@ -1,24 +1,23 @@
 <div class="menu">
     <div class="contenido">
-    <div class="datos">
-        <h1 id="name">IRINA CASAS DUARTE</h1>
-        <h2 id="job">Jr.Full Stack developer | Jr.PPO</h2>
-    </div>
-    <div class="contact">
-        <button mat-button class="btn-contact" (click) ="openContactDialog()">CONTACT ME</button>
-        <!-- <a href= "#" (click)="openContactDialog()">CONTACT ME</a> -->
-    </div>
-    <div class="language">
-        <mat-form-field>
-            <mat-label>Languages/idiomas</mat-label>
-            <mat-select (valueChange)="changeLanguage($event)">
-                <mat-option value="english">English B2</mat-option>
-                <mat-option value="castellano">Castellano nativa</mat-option>
-                <mat-option value="catala">Català nativa</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
- 
+        <div class="datos">
+            <h1 id="name">IRINA C.</h1>
+            <h2 id="job">{{getJobContent()}} | QA</h2>
+        </div>
+        <div class="contact">
+            <button mat-button class="btn-contact fixed-btn" (click)="openContactDialog()">{{ getContactMeContent() }}</button>
+        </div>
+        <div class="language">
+            <mat-form-field color="accent">
+                <mat-label>{{ getTitleContent() }}</mat-label>
+                <mat-select (valueChange)="changeLanguage($event)" >
+                    <mat-option *ngFor="let head of getHeaderContent()" [value]="head.value">
+                        {{ head.language }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
 
-</div>
+
+    </div>
 </div>

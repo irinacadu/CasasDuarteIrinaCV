@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=News+Cycle:wght@400;700&display=swap');
+$red: rgba(#dd360c, .9);
+$green: rgba(#028D46, .9);
+$pink: rgba(#f02c77, .9);
 //GENERAL
 
 .principal-background {
@@ -10,6 +13,8 @@
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
+
+
 
 .btn-about-me,
 .btn-work-experience,
@@ -27,7 +32,7 @@
   transition: all 0.3s ease;
   margin-top: 20px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;  
+  font-size: 1.5rem;
   color: rgb(138, 138, 138);
 }
 
@@ -36,10 +41,10 @@
 .btn-education:hover,
 .btn-skills:hover,
 .btn-interests:hover,
-.btn-projects:hover{  
-  background: rgba(105, 214, 209, 0.781);  
+.btn-projects:hover {
+  background: rgba(105, 214, 209, 0.781);
   color: rgb(255, 255, 255);
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .btn-about-me.transformed,
@@ -50,21 +55,21 @@
 .btn-projects.transformed {
   border-radius: 0%;
   width: 100%;
-  height: 50px;  
-  text-align: center; 
+  height: 50px;
+  text-align: center;
   background: rgba(105, 214, 209, 0.781);
   margin-top: 20px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;  
+  font-size: 1.5rem;
   color: rgb(255, 255, 255);
 }
 
-.about-me, 
+.about-me,
 .work-experience,
 .education,
 .skills,
 .interests,
-.projects{
+.projects {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,11 +78,11 @@
 }
 
 
-.about-me-content, 
+.about-me-content,
 .work-experience-content,
 .education-content,
 .skills-content {
-  
+
   background-color: #D9D9D9;
   display: none;
   font-family: 'News Cycle', sans-serif;
@@ -88,42 +93,71 @@
 
 //ABOUT ME
 
-.description{
+.description {
   font-size: 1.3rem;
   font-family: 'News Cycle', sans-serif;
   line-height: 2rem;
   text-align: justify;
 }
 
-.bold-text {  
+.bold-text {
   font-size: 1.5rem;
   text-transform: uppercase;
   font-family: 'Bebas Neue', sans-serif;
 
- }
+}
 
- //WORK
-.work-date{
-  color: rgb(5, 82, 78); 
+//WORK
+.work-date {
+  color: rgb(0, 7, 7);
   font-size: 1.5rem;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-  border-bottom: rgb(5, 82, 78) solid thin;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.2rem;
   font-family: 'Bebas Neue', sans-serif;
 }
 
-.work-description{
+.work-enterprise {
+  color: rgb(85, 85, 85);
+  font-size: 1.1rem;
+  padding-bottom: 0.2rem;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.work-jobTitle {
+  color: rgb(32, 32, 32);
+  font-size: 1.1rem;
+  padding-bottom: 0.2rem;
+  font-family: 'Bebas Neue', sans-serif;
+
+}
+
+.work-functions {
+  color: rgb(250, 0, 92);
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.work-technologies {
+  color: #0d746e;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.2rem;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  border-bottom: #05524e solid thin;
+}
+
+.work-description {
   font-size: 1rem;
   line-height: 1.8rem;
   margin-bottom: 1.5rem;
   font-family: 'News Cycle', sans-serif;
   text-align: justify;
-  
+
 
 }
 
-.work-list{
+.work-list {
   display: flex;
   width: 100%;
   list-style: none;
@@ -135,112 +169,136 @@
 
 
 
-.work-title{
+.work-title {
   text-align: start;
-  font-size: 1.3rem;  
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-family: 'Bebas Neue', sans-serif;
   margin-bottom: -0.3rem;
 
 }
 
-.work-functions{
+.work-functions {
   width: 75%;
 
 }
 
-.work-functions-list{
+.work-functions-list {
   list-style: none;
- 
+
 }
 
-.work-functions-list li{
-  
+.work-functions-list li {
+
   padding-bottom: 0.5rem;
 }
-.functions-list{
+
+.functions-list {
   width: 30%;
 }
-.travel-agent{
-  margin-top: 2rem; 
+
+.travel-agent {
+  margin-top: 2rem;
 
 }
 
 //EDUCATION
 .edu {
-  display: flex;
-  justify-content: space-around;
   text-align: center;
- 
-}
-.edu span{
-  color: #05524e; 
-  font-weight: bold;
-  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 
+.dateEd {
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: bolder;
+}
+
+.descriptionEd {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #f8005b;
+  font-weight: bolder;
+
+}
+
+.placeEd {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #05524e;
+  font-weight: bolder;
+}
+
+
+
 //SKILLS
-.skills-detail{
+.skills-detail {
   display: flex;
   // justify-content: center;
   // align-items: center;
 }
+
 .soft-skills,
-.hard-skills{
+.hard-skills {
   width: 100%;
   display: flex;
   flex-direction: column;
- // justify-content: center;
+  // justify-content: center;
 
 }
+
 .soft-content,
-.hard-content{
+.hard-content {
   display: flex;
   flex-wrap: wrap;
   display: grid;
-  place-items: center; 
-  grid-template-columns: repeat(auto-fill, 10rem); 
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, 10rem);
   gap: 1rem;
   width: 100%;
   justify-content: center;
 }
+
 .soft-skill,
-.hard-skill{
-  width: 100%;  
+.hard-skill {
+  width: 100%;
   display: flex;
- 
+
 
 }
 
-.skills-detail h3{
+.skills-detail h3 {
   text-align: center;
-  font-size: 1.3rem;  
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-family: 'Bebas Neue', sans-serif;
 }
-.skills-detail{
- width: 100%;
- display: flex;
- //justify-content: center;
+
+.skills-detail {
+  width: 100%;
+  display: flex;
+  //justify-content: center;
 
 }
 
-.image{
+.image {
   width: 1rem;
   height: 1rem;
 }
 
-.soft-icon{
+.soft-icon {
   text-align: center;
-  color:#EC5088;
+  color: #EC5088;
 
 }
 
-.skill-icon{
- // width: 10%;
+.skill-icon {
+  // width: 10%;
   text-align: center;
 }
-.skill-description{
+
+.skill-description {
   //width: 90%;
   padding-left: 1rem;
   text-align: center;

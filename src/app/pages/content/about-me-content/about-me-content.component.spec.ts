@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AboutMeContentComponent } from './about-me-content.component';
+
+describe('AboutMeContentComponent', () => {
+  let component: AboutMeContentComponent;
+  let fixture: ComponentFixture<AboutMeContentComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AboutMeContentComponent]
+    });
+    fixture = TestBed.createComponent(AboutMeContentComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

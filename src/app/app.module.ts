@@ -22,6 +22,16 @@ import { PdfGeneratorComponent } from './pages/pdf-generator/pdf-generator.compo
 import { ContactDialogComponent } from './pages/contact-dialog/contact-dialog.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WorkExperienceContentComponent } from './pages/content/work-experience-content/work-experience-content.component';
+import { AboutMeContentComponent } from './pages/content/about-me-content/about-me-content.component';
+import { PpoDevFunctionsContentComponent } from './pages/content/ppo-dev-functions-content/ppo-dev-functions-content.component';
+import { OtherWorkExperienceContentComponent } from './pages/content/other-work-experience-content/other-work-experience-content.component';
+import { EducationContentComponent } from './pages/content/education-content/education-content.component';
+import { SkillsContentComponent } from './pages/content/skills-content/skills-content.component';
+import { InterestsContentComponent } from './pages/content/interests-content/interests-content.component';
+import { PersonalProjectsContentComponent } from './pages/content/personal-projects-content/personal-projects-content.component';
+import { LineJumpingPipe } from 'src/pipes/line-jumping-pipe';
+import { HeaderContentComponent } from './pages/content/header-content/header-content.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +41,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormatDescriptionPipe,
     FooterComponent,
     PdfGeneratorComponent,
-    ContactDialogComponent
+    ContactDialogComponent,
+    WorkExperienceContentComponent,
+    AboutMeContentComponent,
+    PpoDevFunctionsContentComponent,
+    OtherWorkExperienceContentComponent,
+    EducationContentComponent,
+    SkillsContentComponent,
+    InterestsContentComponent,
+    PersonalProjectsContentComponent,
+    LineJumpingPipe,
+    HeaderContentComponent,
     
   ],
   imports: [
