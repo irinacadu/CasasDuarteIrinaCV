@@ -1,7 +1,7 @@
 
 .contact-container{
-    background-color: rgb(247, 0, 103);
-    padding: 10px;
+    background-color: rgb(238, 255, 0);
+    padding: 5px;
 }
 
 .contact-me{
@@ -26,4 +26,31 @@
 img{
     width: 4rem;
     height: 4rem;
+}
+
+.git,
+.linkedIn,
+.whats,
+.mail{
+    background-color: #152427;
+    border:none;
+    width: 6rem;
+    height: 6rem;
+
+
+}
+.git:hover,
+.linkedIn:hover,
+.whats:hover,
+.mail:hover
+
+{
+  
+    background-color: rgb(247, 0, 103);
+    padding:0.2rem;
+    transform: scale(1.3);
+}
+
+.mail-img{
+    width: 5rem;
 }

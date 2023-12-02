@@ -3,10 +3,9 @@
   rel="stylesheet">
 <div class="body">
   <div class="principal-background">
-    
+
     <!-- <div class=" download">
       <button mat-button class="btn-download" (click)="generatePPOPdf()">Download CV</button>
-
     </div> -->
     <!--ABOUT ME-->
     <div class="about-me">
@@ -22,7 +21,6 @@
           </ng-template>
         </ng-container>
       </div>
-
     </div>
 
     <!--WORK EXPERIENCE-->
@@ -56,69 +54,66 @@
               edu.descriptionEd }} </span><span class="placeEd">{{ edu.place }}</span> </p>
         </div>
       </div>
+    </div>
 
-      <!--SKILLS-->
-      <div class="skills">
-        <button class="btn-skills" [class.transformed]="isSkillsTransformed" (click)="toggleSkillsChange()">
-          <div *ngIf="!isSkillsTransformed">{{ getSkillsTitleContent() }}</div>
-          <div *ngIf="isSkillsTransformed">{{ getSkillsTitleContent() }}</div>
-        </button>
-        <div class="skills-content" [style.display]="isSkillsVisible ? 'block' : 'none'">
-          <div class="skills-detail">
-            <div class="soft-skills">
-              <div class="soft-title">
-                <h3 *ngIf="isSkillsVisible">{{ getTypeSkillsContent().soft }}</h3>
-                <h3 *ngIf="!isSkillsVisible">{{getTypeSkillsContent().soft }}</h3>
-              </div>
-              <div class="soft-content">
-                <div *ngFor="let skill of getSoftSkillsContent()" class="soft-skill">
-                  <div class="skill-icon">
-                    <mat-icon class="soft-icon">
-                      {{skill.icon}}
-                    </mat-icon>
-                  </div>
-                  <div class="skill-description">
-                    {{skill.soft}}
-                  </div>
+    <!--SKILLS-->
+    <div class="skills">
+      <button class="btn-skills" [class.transformed]="isSkillsTransformed" (click)="toggleSkillsChange()">
+        <div *ngIf="!isSkillsTransformed">{{ getSkillsTitleContent() }}</div>
+        <div *ngIf="isSkillsTransformed">{{ getSkillsTitleContent() }}</div>
+      </button>
+      <div class="skills-content" [style.display]="isSkillsVisible ? 'block' : 'none'">
+        <div class="skills-detail">
+          <div class="soft-skills">
+            <div class="soft-title">
+              <h3 *ngIf="isSkillsVisible">{{ getTypeSkillsContent().soft }}</h3>
+              <h3 *ngIf="!isSkillsVisible">{{getTypeSkillsContent().soft }}</h3>
+            </div>
+            <div class="soft-content">
+              <div *ngFor="let skill of getSoftSkillsContent()" class="soft-skill">
+                <div class="skill-icon">
+                  <mat-icon class="soft-icon">
+                    {{skill.icon}}
+                  </mat-icon>
+                </div>
+                <div class="skill-description">
+                  {{skill.soft}}
                 </div>
               </div>
             </div>
-            <div class="hard-skills">
-              <h3 *ngIf="isSkillsVisible">{{ getTypeSkillsContent().hard}}</h3>
-              <h3 *ngIf="!isSkillsVisible">{{ getTypeSkillsContent().hard}}
-              </h3>
-              <div class="hard-content">
-                <div *ngFor="let skill of  getHardSkillsContent()" class="hard-skill">
-                  <div class="skill-icon">
-                    <img class="hard-icon" class="image" src="./assets/img/{{skill.img}}">
-                  </div>
-                  <div class="skill-description">
-                    {{skill.hard}}
-                  </div>
+          </div>
+          <div class="hard-skills">
+            <h3 *ngIf="isSkillsVisible">{{ getTypeSkillsContent().hard}}</h3>
+            <h3 *ngIf="!isSkillsVisible">{{ getTypeSkillsContent().hard}}
+            </h3>
+            <div class="hard-content">
+              <div *ngFor="let skill of  getHardSkillsContent()" class="hard-skill">
+                <div class="skill-icon">
+                  <img class="hard-icon" class="image" src="./assets/img/{{skill.img}}">
+                </div>
+                <div class="skill-description">
+                  {{skill.hard}}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--PERSONAL PROJECTS-->
-      <div class="projects">
-        <button class="btn-projects" [class.transformed]="isPersonalProjectTransformed"
-          (click)="togglePersonalProjectChange()">
-          <div *ngIf="!isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
-          <div *ngIf="isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
-        </button>
-      </div>
-      <!--INTERESES-->
-      <div class="interests">
-        <button class="btn-interests" [class.transformed]="isInterestTransformed" (click)="toggleInterestChange()">
-          <div *ngIf="!isInterestTransformed">{{ getInterestsTitleContent() }}</div>
-          <div *ngIf="isInterestTransformed">{{ getInterestsTitleContent()}}</div>
-        </button>
-      </div>
-
-
-
-
     </div>
+    <!--PERSONAL PROJECTS-->
+    <div class="projects">
+      <button class="btn-projects" [class.transformed]="isPersonalProjectTransformed"
+        (click)="togglePersonalProjectChange()">
+        <div *ngIf="!isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
+        <div *ngIf="isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
+      </button>
+    </div>
+    <!--INTERESES-->
+    <div class="interests">
+      <button class="btn-interests" [class.transformed]="isInterestTransformed" (click)="toggleInterestChange()">
+        <div *ngIf="!isInterestTransformed">{{ getInterestsTitleContent() }}</div>
+        <div *ngIf="isInterestTransformed">{{ getInterestsTitleContent()}}</div>
+      </button>
+    </div>
+
   </div>
