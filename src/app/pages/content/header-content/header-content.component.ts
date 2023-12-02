@@ -54,24 +54,24 @@ export class HeaderContentComponent {
     }
 
     ]
-      
-}
 
-contactMeByLanguage: { [key: string]: string } = {
-  english: 'CONTACT',
-  castellano: 'CONTACTO',
-  catala: 'CONTACTE'
-}
+  }
 
-selectTitleByLanguage: { [key: string]: string } = {
-  english: 'Language',
-  castellano: 'Lenguaje',
-  catala: 'Llenguatge'
-}
+  contactMeByLanguage: { [key: string]: string } = {
+    english: 'CONTACT',
+    castellano: 'CONTACTO',
+    catala: 'CONTACTE'
+  }
 
-selectJobByLanguage: { [key: string]: string } = {
-  english: 'Web Developer',
-  castellano: 'Web Developer',
-  catala: 'Web Developer'
-}
+  selectTitleByLanguage: { [key: string]: string } = {
+    english: 'Language',
+    castellano: 'Lenguaje',
+    catala: 'Llenguatge'
+  }
+
+  selectJobByLanguage: { [key: string]: string } = {
+    english: 'Web Developer',
+    castellano: 'Web Developer',
+    catala: 'Web Developer'
+  }
 }
