@@ -23,6 +23,8 @@
     "jspdf": "^2.5.1",
     "rxjs": "~7.5.0",
     "zone.js": "~0.13.1"
+
+    
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.3",
