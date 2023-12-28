@@ -1,16 +1,18 @@
 <div class="menu">
-    <div class="contenido">
-        <div class="datos">
-            <h1 id="name">IRINA C.</h1>
-            <h2 id="job">{{getJobContent()}} | QA</h2>
-        </div>
-        <div class="contact">
-            <button mat-button class="btn-contact fixed-btn" (click)="openContactDialog()">{{ getContactMeContent() }}</button>
-        </div>
-        <div class="language">
+    <!-- <div class="contenido"> -->
+    <div class="datos">
+        <h1 id="name">IRINA C.</h1>
+        <h2 id="job">{{getJobContent()}} | QA</h2>
+        <!-- <button class="btn-menu" (click)="toggleMenu()">
+            <i class="material-icons menu-icon">menu</i>
+        </button> -->
+    </div>
+    <div class="menu-content">
+
+        <div class="language-sm">
             <mat-form-field color="accent">
                 <mat-label>{{ getTitleContent() }}</mat-label>
-                <mat-select (valueChange)="changeLanguage($event)" >
+                <mat-select (valueChange)="changeLanguage($event)">
                     <mat-option *ngFor="let head of getHeaderContent()" [value]="head.value">
                         {{ head.language }}
                     </mat-option>
@@ -18,6 +20,30 @@
             </mat-form-field>
         </div>
 
+        <div class="contact-me">
+            <button class="whats"><a href="https://wa.me/638207725?text=Hello%20World" target="_blank"><img
+                        class="whats-img" src="../assets/social-media-icons/whats.png"></a></button>
+            <button class="mail"> <a href="mailto:irina_cadu@gmail.com" target="_blank"><img class="mail-img"
+                        src="../assets/social-media-icons/mail.png"></a></button>
 
+            <button class="git"> <a href="https://github.com/irinacadu" target="_blank"><img class="git-img"
+                        src="../assets/social-media-icons/gitHub.png"></a></button>
+            <button class="linkedIn"> <a href="https://www.linkedin.com/in/irina-casas-duarte" target="_blank"> <img
+                        class="linkedin-img" src="../assets/social-media-icons/linkedIn.png"></a></button>
+        </div>
+
+   
+        <div class="language">
+            <mat-form-field color="accent">
+                <mat-label>{{ getTitleContent() }}</mat-label>
+                <mat-select (valueChange)="changeLanguage($event)">
+                    <mat-option *ngFor="let head of getHeaderContent()" [value]="head.value">
+                        {{ head.language }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
+
+    <!-- </div> -->
 </div>

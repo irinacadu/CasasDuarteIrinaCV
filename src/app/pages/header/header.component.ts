@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
 import { HeaderContentComponent } from '../content/header-content/header-content.component';
 import { Header } from '../interfaces/header';
+import { MatAccordion } from '@angular/material/expansion';
 
 
 @Component({
@@ -10,9 +11,13 @@ import { Header } from '../interfaces/header';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-
+export class HeaderComponent implements OnInit {
+  menu: any;
+  @ViewChild(MatAccordion)accordion!: MatAccordion;
   constructor(public dialog: MatDialog) { }
+  ngOnInit(): void {
+    this.menu.nativeElement.addEventListener('click', this.toggleMenu);
+  }
 
   openContactDialog() {
     const dialogRef = this.dialog.open(ContactDialogComponent);
@@ -54,5 +59,14 @@ export class HeaderComponent {
     return this.headerContentComponent.selectJobByLanguage[this.selectedLanguage];
   }
   
-  
+  toggleMenu() {
+    if (this.menu.nativeElement.classList.contains('show-menu')) {
+      this.menu.nativeElement.classList.remove('show-menu');
+    } else {
+      this.menu.nativeElement.classList.add('show-menu');
+    }
+  }
 }
+
+
+
