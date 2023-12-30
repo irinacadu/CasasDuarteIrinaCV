@@ -13,11 +13,14 @@ import { Education } from '../interfaces/education';
 import { Skills } from '../interfaces/skills';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
+import { ExistingPdfComponent } from '../content/existing-pdf/existing-pdf.component';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.scss'],
+  styleUrls: ['./principal.component.scss','./principal-responsive.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('visible', style({ opacity: 1, display: 'block' })),
@@ -27,6 +30,7 @@ import { ContactDialogComponent } from '../contact-dialog/contact-dialog.compone
   ]
 })
 export class PrincipalComponent {
+[x: string]: any;
   isAboutMeVisible = false;
   isAboutMeTransformed = false;
 
@@ -46,6 +50,7 @@ export class PrincipalComponent {
   isPersonalProjectTransformed = false;
 
   @Input() selectedLanguage: string = 'english';
+  
   aboutMeContentComponent: AboutMeContentComponent = new AboutMeContentComponent();
   workExperienceContentComponent: WorkExperienceContentComponent = new WorkExperienceContentComponent();
   educationContentComponent: EducationContentComponent = new EducationContentComponent();
@@ -53,7 +58,17 @@ export class PrincipalComponent {
   interestsContentComponent: InterestsContentComponent = new InterestsContentComponent();
   personalProjectsContentComponent: PersonalProjectsContentComponent = new PersonalProjectsContentComponent();
 
+
   constructor(private pdfGeneratorService: PdfGeneratorService) {}
+  getPdfRoute() {
+    if (this.selectedLanguage === 'english') {
+      return `assets/docs/casasDuarteIrina_CA.pdf`;
+    } else if(this.selectedLanguage === 'catala'){
+      return `assets/docs/casasDuarteIrina_CA.pdf`;
+    }else{
+      return `assets/docs/casasDuarteIrina_ES.pdf`;
+    }
+  }
 
   //TOGGLE [...] CHANGE
   toggleAboutMeChange() {

@@ -4,9 +4,13 @@
 <div class="body">
   <div class="principal-background">
 
-    <!-- <div class=" download">
-      <button mat-button class="btn-download" (click)="generatePPOPdf()">Download CV</button>
-    </div> -->
+    <!--DOWNLOAD EXISTING PDF-->
+    <div class="download-existing-pdf">
+      <a *ngIf="selectedLanguage === 'english'" [href]="getPdfRoute()"  download="casasDuarteIrina_EN.pdf">PDF</a>
+      <a *ngIf="selectedLanguage === 'castellano'" [href]="getPdfRoute()" download="casasDuarteIrina_ES.pdf">PDF</a>
+      <a *ngIf="selectedLanguage === 'catala'" [href]="getPdfRoute()" download="casasDuarteIrina_CA.pdf">PDF</a>
+    </div>
+
     <!--ABOUT ME-->
     <div class="about-me">
       <button class="btn-about-me " [class.transformed]="isAboutMeTransformed" (click)="toggleAboutMeChange()">
@@ -100,20 +104,6 @@
         </div>
       </div>
     </div>
-    <!--PERSONAL PROJECTS-->
-    <!-- <div class="projects">
-      <button class="btn-projects" [class.transformed]="isPersonalProjectTransformed"
-        (click)="togglePersonalProjectChange()">
-        <div *ngIf="!isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
-        <div *ngIf="isPersonalProjectTransformed">{{ getPersonalProjectsTitleContent() }}</div>
-      </button>
-    </div> -->
-    <!--INTERESES-->
-    <!-- <div class="interests">
-      <button class="btn-interests" [class.transformed]="isInterestTransformed" (click)="toggleInterestChange()">
-        <div *ngIf="!isInterestTransformed">{{ getInterestsTitleContent() }}</div>
-        <div *ngIf="isInterestTransformed">{{ getInterestsTitleContent()}}</div>
-      </button>
-    </div> -->
+ 
 
   </div>

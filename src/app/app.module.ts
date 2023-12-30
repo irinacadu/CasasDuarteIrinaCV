@@ -32,6 +32,7 @@ import { InterestsContentComponent } from './pages/content/interests-content/int
 import { PersonalProjectsContentComponent } from './pages/content/personal-projects-content/personal-projects-content.component';
 import { LineJumpingPipe } from 'src/pipes/line-jumping-pipe';
 import { HeaderContentComponent } from './pages/content/header-content/header-content.component';
+import { ExistingPdfComponent } from './pages/content/existing-pdf/existing-pdf.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { HeaderContentComponent } from './pages/content/header-content/header-co
     PersonalProjectsContentComponent,
     LineJumpingPipe,
     HeaderContentComponent,
+    ExistingPdfComponent,
     
   ],
   imports: [

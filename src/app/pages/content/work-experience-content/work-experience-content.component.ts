@@ -22,7 +22,7 @@ export class WorkExperienceContentComponent {
         enterprise: 'Capgemini',
         jobTitle: 'Project at an Irish insurance company',
         functions: 'Back End | QA Automation',
-        description: 'As part of the international QA Automation team, we automate tests (smoke, regression, E2E, unit, etc.) to ensure product quality and performance.',
+        description: 'As part of the international QA Automation team and the development team, we automate tests (smoke, regression, E2E, unitaries...) as well as "spikes" to ensure the quality of the product and its performance using agile methodologies under the Scrum framework.',
         technologies: 'Java, Selenium, TestNG, Postman, Jira, Git'
       },
       {
@@ -31,7 +31,7 @@ export class WorkExperienceContentComponent {
         jobTitle: 'Internal Project',
         functions: 'Back End | QA Automation',
         description: 'During my short stay, I was able to create a batch service with Spring Batch for people management, as well as test automation with JUnit to ensure code quality.',
-        technologies: 'Java, Spring Boot, Spring Batch, Docker, Mockito, Junit'
+        technologies: 'Java, Spring Boot, Spring Batch, Mockito, Junit'
       },
       {
         date: 'Sep 22 – Oct 23',
@@ -53,7 +53,7 @@ export class WorkExperienceContentComponent {
           enterprise: 'Capgemini',
           jobTitle: 'Proyecto en empresa de seguros Irlandesa',
           functions: 'QA Automation| Back End',
-          description: 'Formando parte del equipo internacional de QA Automation automatizamos pruebas (de humo, de regresión, E2E, unitarias...) para asegurar la calidad del producto y su funcionamiento.',
+          description: 'Como parte del equipo internacional de QA Automation y del equipo de desarrollo, automatizamos pruebas (smoke, regresión, E2E, unitarias...) así como spikes para asegurar la calidad del producto y su rendimiento utilizando metodologías ágiles bajo el marco Scrum.',
           technologies: 'Java, Selenium, TestNG, Postman, Jira, Git'
         },
         {
@@ -63,7 +63,7 @@ export class WorkExperienceContentComponent {
           jobTitle: 'Proyecto interno',
           functions: 'QA Automation| Back End',
           description: 'Durante mi breve estancia, pude crear un servicio batch con Spring Batch para la gestión de personas, así como la automatización de pruebas con JUnit para garantizar la calidad del código.',
-          technologies: 'Java, Spring Boot, Spring Batch, Docker, Mockito, Junit'
+          technologies: 'Java, Spring Boot, Spring Batch, Mockito, Junit'
         },
 
         {
@@ -83,7 +83,7 @@ export class WorkExperienceContentComponent {
         enterprise: 'Capgemini',
         jobTitle: 'Projecte en una empresa d\'assegurances irlandesa',
         functions: 'QA Automation| Back End',
-        description: 'Formant part de l\'equip internacional de QA Automation, automatitzem proves (de fum, de regressió, E2E, unitàries...) per assegurar la qualitat del producte i el seu funcionament.',
+        description: 'Formant part de l\'equip internacional de QA Automationy del de desenvolupament automatitzem proves (de fum, regressió, E2E, unitaries…) així com “spikes” per assegurar la qualitat del producte i el seu funcionamient duent-ho a terme amb metodologies àgils sota el marc de treball Scrum.',
         technologies: 'Java, Selenium, TestNG, Postman, Jira, Git'
       },
       {
@@ -93,7 +93,7 @@ export class WorkExperienceContentComponent {
         jobTitle: 'Projecte intern',
         functions: 'QA Automation| Back End',
         description: 'Durant la meva breu estada, vaig poder crear un servei batch amb Spring Batch per a la gestió de persones, així com l\'automatització de proves amb JUnit per garantir la qualitat del codi.',
-        technologies: 'Java, Spring Boot, Spring Batch, Docker, Mockito, Junit'
+        technologies: 'Java, Spring Boot, Spring Batch, Mockito, Junit'
       },
 
       {

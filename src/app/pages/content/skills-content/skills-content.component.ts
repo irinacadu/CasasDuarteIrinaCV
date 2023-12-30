@@ -62,7 +62,7 @@ export class SkillsContentComponent {
 
     ],
     catala: [
-      { soft: 'Gestió de cambi', icon: 'multiple_stop' },
+      { soft: 'Gestió de canvi', icon: 'multiple_stop' },
       { soft: 'Mentalitat de creixement', icon: 'rocket_launch' },
       { soft: 'Mentalitat analítica', icon: 'psychology' },
       { soft: 'Planificació', icon: 'edit_calendar' },

@@ -9,16 +9,14 @@ import { MatAccordion } from '@angular/material/expansion';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss','./header-responsive.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  menu: any;
-  @ViewChild(MatAccordion)accordion!: MatAccordion;
+export class HeaderComponent  {
+  selected: boolean = false;
   constructor(public dialog: MatDialog) { }
-  ngOnInit(): void {
-    this.menu.nativeElement.addEventListener('click', this.toggleMenu);
+  onSelect() {
+    this.selected = !this.selected;
   }
-
   openContactDialog() {
     const dialogRef = this.dialog.open(ContactDialogComponent);
 
@@ -36,10 +34,7 @@ export class HeaderComponent implements OnInit {
   isLanguageChanged = false;
   selectedLanguage: string = 'english';
   toggleAboutMeChange() {
-
     this.isLanguageChanged = !this.isLanguageChanged;
-
-
   }
 
   private updateHeaderContent(language: string) {
@@ -59,13 +54,7 @@ export class HeaderComponent implements OnInit {
     return this.headerContentComponent.selectJobByLanguage[this.selectedLanguage];
   }
   
-  toggleMenu() {
-    if (this.menu.nativeElement.classList.contains('show-menu')) {
-      this.menu.nativeElement.classList.remove('show-menu');
-    } else {
-      this.menu.nativeElement.classList.add('show-menu');
-    }
-  }
+
 }
 
 
