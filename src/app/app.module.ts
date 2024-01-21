@@ -33,6 +33,7 @@ import { PersonalProjectsContentComponent } from './pages/content/personal-proje
 import { LineJumpingPipe } from 'src/pipes/line-jumping-pipe';
 import { HeaderContentComponent } from './pages/content/header-content/header-content.component';
 import { ExistingPdfComponent } from './pages/content/existing-pdf/existing-pdf.component';
+import { DigitalGardenComponent } from './pages/digital-garden/digital-garden.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ExistingPdfComponent } from './pages/content/existing-pdf/existing-pdf.
     LineJumpingPipe,
     HeaderContentComponent,
     ExistingPdfComponent,
+    DigitalGardenComponent,
     
   ],
   imports: [

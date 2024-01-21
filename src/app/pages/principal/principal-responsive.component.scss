@@ -56,4 +56,46 @@ $pink: rgba(#f02c77, .9);
     padding: 0.2rem;
     transform: scale(1.3);
     border-radius: 50px;
-  }}  
+  }
+
+  .edu {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  .edu-info{
+    width: 100%;
+    text-align: start;
+  }
+  .education-content{
+    display: flex;
+  }
+  .edu-info td{
+  padding: 10px;
+  }
+  .dateEd {
+    font-size: 0.5rem;
+    color: #1a1a1a;
+    font-weight: bolder;
+    width: 20%;
+  }
+  
+  .descriptionEd {
+    font-size: 0.5rem;
+    color: #f8005b;
+    font-weight: bolder;
+    width: 50%;
+    text-align:center;
+  }
+  
+  .placeEd {
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    color: #05524e;
+    font-weight: bolder;
+  }
+  
+
+
+}  

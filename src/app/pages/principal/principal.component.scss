@@ -205,23 +205,35 @@ $pink: rgba(#f02c77, .9);
 
 //EDUCATION
 .edu {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
-
+.edu-info{
+  width: 70%;
+  text-align: start;
+}
+.education-content{
+  display: flex;
+}
+.edu-info td{
+padding: 10px;
+}
 .dateEd {
   font-size: 1rem;
   color: #1a1a1a;
   font-weight: bolder;
+  width: 20%;
+  text-transform: uppercase;
 }
 
 .descriptionEd {
-  font-size: 1.3rem;
-  text-transform: uppercase;
+  font-size: 1rem;
   color: #f8005b;
   font-weight: bolder;
-
+  width: 50%;
+  text-align:center;
 }
 
 .placeEd {
@@ -229,6 +241,7 @@ $pink: rgba(#f02c77, .9);
   text-transform: uppercase;
   color: #05524e;
   font-weight: bolder;
+  text-align: end;
 }
 
 //SKILLS

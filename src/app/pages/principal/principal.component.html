@@ -6,7 +6,7 @@
 
     <!--DOWNLOAD EXISTING PDF-->
     <div class="download-existing-pdf">
-      <a *ngIf="selectedLanguage === 'english'" [href]="getPdfRoute()"  download="casasDuarteIrina_EN.pdf">PDF</a>
+      <a *ngIf="selectedLanguage === 'english'" [href]="getPdfRoute()" download="casasDuarteIrina_EN.pdf">PDF</a>
       <a *ngIf="selectedLanguage === 'castellano'" [href]="getPdfRoute()" download="casasDuarteIrina_ES.pdf">PDF</a>
       <a *ngIf="selectedLanguage === 'catala'" [href]="getPdfRoute()" download="casasDuarteIrina_CA.pdf">PDF</a>
     </div>
@@ -53,9 +53,15 @@
         <div *ngIf="isEducationTransformed">{{ getEducationTitleContent() }}</div>
       </button>
       <div class="education-content" [style.display]="isEducationVisible ? 'block' : 'none'">
+
         <div class="edu" *ngFor="let edu of getEducationContent(); let i = index">
-          <p class="edu-info"><span class="dateEd">{{ edu.dateEd }}</span> <span class="descriptionEd">{{
-              edu.descriptionEd }} </span><span class="placeEd">{{ edu.place }}</span> </p>
+          <table class="edu-info">
+            <tr>
+              <td class="dateEd"><span>{{ edu.dateEd }}</span> </td>
+              <td class="descriptionEd"> <span>{{edu.descriptionEd }} </span></td>
+              <td class="placeEd"> <span>{{ edu.place }}</span> </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -104,6 +110,6 @@
         </div>
       </div>
     </div>
- 
+
 
   </div>

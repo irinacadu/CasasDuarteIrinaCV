@@ -16,8 +16,8 @@ export class EducationContentComponent {
   contentByLanguageDevEducation: { [key: string]: Education[] } = {
     english: [
       {
-        dateEd: '2020-2023',
-        descriptionEd: 'Senior Level Vocational Training in web development (MEC level 6)',
+        dateEd: 'Sep20 – Jun23',
+        descriptionEd: 'Senior Level Vocational Training in web development ',
         place:'CEIFP Carlos III, Cartagena'
       },
       {
@@ -29,7 +29,7 @@ export class EducationContentComponent {
 
     castellano: [
       {
-        dateEd: '2020-2023:',
+        dateEd: 'Sep20 – Jun23',
         descriptionEd: 'CFGS de aplicaciones web',
         place:'CEIFP Carlos III, Cartagena'
       },
@@ -41,7 +41,7 @@ export class EducationContentComponent {
     ],
     catala: [
       {
-        dateEd: '2020-2023',
+        dateEd: 'Sep20 – Jun23',
         descriptionEd: 'CFGS de desenvolupament d\'aplicacions web',
         place:'CEIFP Carlos III, Cartagena'
       },
@@ -55,7 +55,7 @@ export class EducationContentComponent {
   contentByLanguageTravelEducation: { [key: string]: any } = {
     english: {
       dateEd: '2014-2016:',
-      descriptionEd: 'Senior Level Vocational Training in travel agencies and MICE (MEC level 6)'
+      descriptionEd: 'Senior Level Vocational Training in travel agencies and MICE'
     },
     castellano: {
       dateEd: '2014-2016:',
