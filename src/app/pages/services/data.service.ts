@@ -3,9 +3,9 @@ import { CvPdf } from '../interfaces/cv-pdf';
 
 import 'pdfmake/build/vfs_fonts';
 // import * as pdfMake from 'pdfmake/build/pdfmake';
-import { ContentText } from 'pdfmake/interfaces';
-import  pdfMake  from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+// import { ContentText } from 'pdfmake/interfaces';
+// import {pdfMake} from 'pdfmake/build/pdfmake';
+// import {pdfFonts} from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs=pdfFonts.pdfMake.vfs;
 
 

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PdfGeneratorService } from '../services/pdf-generator.service';
-import jsPDF from 'jspdf';
+
 import { AboutMeContentComponent } from '../content/about-me-content/about-me-content.component';
 import { WorkExperienceContentComponent } from '../content/work-experience-content/work-experience-content.component';
 import { EducationContentComponent } from '../content/education-content/education-content.component';
