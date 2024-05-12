@@ -34,6 +34,7 @@ import { LineJumpingPipe } from 'src/pipes/line-jumping-pipe';
 import { HeaderContentComponent } from './pages/content/header-content/header-content.component';
 import { ExistingPdfComponent } from './pages/content/existing-pdf/existing-pdf.component';
 import { DigitalGardenComponent } from './pages/digital-garden/digital-garden.component';
+import { ExtractDataForPdfComponent } from './pages/classes/extract-data-for-pdf/extract-data-for-pdf.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,10 @@ import { DigitalGardenComponent } from './pages/digital-garden/digital-garden.co
     
    
   ],
-  providers: [],
+  providers: [
+    FormatDescriptionPipe,
+    ExtractDataForPdfComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

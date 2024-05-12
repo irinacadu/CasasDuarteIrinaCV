@@ -70,8 +70,8 @@ export class HeaderContentComponent {
   }
 
   selectJobByLanguage: { [key: string]: string } = {
-    english: 'Web Developer',
-    castellano: 'Web Developer',
-    catala: 'Web Developer'
+    english: 'FullStack Dev',
+    castellano: 'FullStack Dev',
+    catala: 'FullStack Dev'
   }
 }

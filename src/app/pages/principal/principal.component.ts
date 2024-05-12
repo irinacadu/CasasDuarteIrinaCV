@@ -15,6 +15,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
 import { ExistingPdfComponent } from '../content/existing-pdf/existing-pdf.component';
 import { HttpClient } from '@angular/common/http';
+import { CvPdf } from '../interfaces/cv-pdf';
+import { DataContact } from '../interfaces/data-contact';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -57,18 +60,64 @@ export class PrincipalComponent {
   skillsContentComponent: SkillsContentComponent = new SkillsContentComponent();
   interestsContentComponent: InterestsContentComponent = new InterestsContentComponent();
   personalProjectsContentComponent: PersonalProjectsContentComponent = new PersonalProjectsContentComponent();
-
-
-  constructor(private pdfGeneratorService: PdfGeneratorService) {}
-  getPdfRoute() {
-    if (this.selectedLanguage === 'english') {
-      return `assets/docs/casasDuarteIrina_CA.pdf`;
-    } else if(this.selectedLanguage === 'catala'){
-      return `assets/docs/casasDuarteIrina_CA.pdf`;
-    }else{
-      return `assets/docs/casasDuarteIrina_ES.pdf`;
-    }
+  dataContact:DataContact={
+    phone:'+34 638 207 725',
+    mail:'irina_cadu@outlook.com',
+    gitHubUrl:'https://github.com/irinacadu',
+    linkedInkUrl:'https://www.linkedin.com/in/irina-casas-duarte/'
   }
+cvPdf:CvPdf={
+  profileImg:'',
+    firstName:'',
+    lastName:'',
+    dataContact:{
+      phone:'',
+      mail:'',
+      gitHubUrl:'',
+      linkedInkUrl:''
+    },
+    aboutMeTitle : '',
+    aboutMeContent: '',
+    workExperienceTitle: '',
+    workExperience: [],
+    educationTitle:'',
+    education: [],
+    skillsTitle:'',
+    skillsSoft:[],
+    skillsHard:[]
+}
+
+  constructor(private dataService: DataService) {}
+
+  getDataForPdf(){
+    this.cvPdf.firstName='Irina';
+    this.cvPdf.lastName='Casas';
+
+    this.cvPdf.dataContact= this.dataContact;
+
+    this.cvPdf.job='Fullstack Dev'
+    this.cvPdf.aboutMeTitle=this.getAboutMeTitleContent();
+    this.cvPdf.aboutMeContent=this.getAboutMeContent();
+
+    this.cvPdf.workExperienceTitle=this.getWorkExperienceTitleContent();
+    this.cvPdf.workExperience= this.getWorkExperienceContent();
+
+    this.cvPdf.educationTitle = this.getEducationTitleContent();
+    this.cvPdf.education = this.getEducationContent();
+
+    this.cvPdf.skillsTitle=this.getSkillsTitleContent();
+    this.cvPdf.skillsSoft=this.getSoftSkillsContent();
+    this.cvPdf.skillsHard=this.getHardSkillsContent();
+
+    
+    
+
+    this.dataService.generatePdf(this.cvPdf);
+
+
+
+  }
+
 
   //TOGGLE [...] CHANGE
   toggleAboutMeChange() {

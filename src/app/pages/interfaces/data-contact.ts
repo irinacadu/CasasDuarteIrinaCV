@@ -1,4 +1,6 @@
 export interface DataContact {
     phone:string,
-    mail:string
+    mail:string,
+    gitHubUrl:string,
+    linkedInkUrl:string
 }

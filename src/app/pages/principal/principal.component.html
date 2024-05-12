@@ -6,9 +6,9 @@
 
     <!--DOWNLOAD EXISTING PDF-->
     <div class="download-existing-pdf">
-      <a *ngIf="selectedLanguage === 'english'" [href]="getPdfRoute()" download="casasDuarteIrina_EN.pdf">PDF</a>
-      <a *ngIf="selectedLanguage === 'castellano'" [href]="getPdfRoute()" download="casasDuarteIrina_ES.pdf">PDF</a>
-      <a *ngIf="selectedLanguage === 'catala'" [href]="getPdfRoute()" download="casasDuarteIrina_CA.pdf">PDF</a>
+      <button (click)="getDataForPdf()">PDF</button>
+      <!-- <a  href="#" (click) = "getDataForPdf()" download="cvIrinaCasasDuarte.pdf">PDF</a> -->
+     
     </div>
 
     <!--ABOUT ME-->
