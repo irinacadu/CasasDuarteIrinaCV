@@ -97,12 +97,13 @@ export class ExtractDataForPdfComponent {
         new Txt(workExperience.jobTitle)
           .font('NewsCycle')
           .fontSize(10)
-          .alignment('left')
-          .color('#202020').end,
+          .alignment('left').bold()
+          .color('#0d746e').end,
 
         new Txt(workExperience.functions)
           .font('NewsCycle')
           .fontSize(10)
+          .bold()
           .color('#fa005c')
           .alignment('left')
          .end,

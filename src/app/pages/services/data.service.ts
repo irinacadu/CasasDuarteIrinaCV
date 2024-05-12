@@ -95,7 +95,7 @@ export class DataService {
               .color('#555555').end,
           ]).absolutePosition(35, -120).end
         ),
-      ]).columnGap(18).end
+      ]).columnGap(17).end
     );
     pdf.add(new Txt('\n' + '\n').end);
 
