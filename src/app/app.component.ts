@@ -11,19 +11,8 @@ export class AppComponent {
 
   selectedLanguage: string = 'english';
 
-
-
-
   constructor(private meta: Meta) {}
 
-  // ngOnInit() {
-
-
-  //   this.meta.addTag({
-  //     name: 'og:image',
-  //     content: 'assets/ogimg.jpg'
-  //   });
-  // }
 
   onLanguageChanged(language: string) {
     this.selectedLanguage = language;
