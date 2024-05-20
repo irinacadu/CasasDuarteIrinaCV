@@ -33,7 +33,7 @@ export class DataService {
   generatePdf(cvPdf: CvPdf) {
     const pdf = new PdfMakeWrapper();
     pdf.pageSize('A4');
-    pdf.pageMargins([30, 10, 30, 10]);
+    pdf.pageMargins([30, 30, 30, 10]);
     pdf.info({
       title: 'CV Irina Casas duarte',
       author: 'Irina Casas duarte',
@@ -78,7 +78,7 @@ export class DataService {
             new Rect(115.5, 125.5)
             .round(10)
               .color('#152427').end,
-          ]).absolutePosition(-92, -110).end
+          ]).absolutePosition(-92, -95).end
         ),
 
         new Txt(formattedAboutMe)
@@ -93,7 +93,7 @@ export class DataService {
             new Rect([115.5, 125.5], [425, 125.5])
               .round(10)
               .color('#555555').end,
-          ]).absolutePosition(35, -120).end
+          ]).absolutePosition(35, -105).end
         ),
       ]).columnGap(17).end
     );
